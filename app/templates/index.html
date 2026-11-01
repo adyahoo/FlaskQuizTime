@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Home - Python Pro Quiz Time{%
+endblock %} {% block content%}
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <!-- The Card component with a subtle shadow -->
+  <div
+    class="card shadow"
+    style="width: 32rem; max-width: 95%; border-radius: 8px"
+  >
+    <div class="card-body text-center p-4">
+      <h5 class="card-title fw-bold mb-2">Python Pro Quiz Time</h5>
+      <h6 class="card-subtitle text-muted mb-4">
+        Test your Python skills with our interactive quiz! Challenge yourself
+        and see how you rank against others.
+      </h6>
+
+      <!-- Navigation Button -->
+      <a href="/quiz" class="btn btn-primary w-100">Start Quiz Here!!!</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

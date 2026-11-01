@@ -1,0 +1,45 @@
+{%- extends "base.html" -%} {%- block title -%}Quiz Result - Python Pro Quiz
+Time{% endblock -%} {%- block content -%}
+<div
+  class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
+>
+  <!-- Result Card -->
+  <div
+    class="card shadow-sm border-0"
+    style="width: 32rem; max-width: 95%; border-radius: 8px"
+  >
+    <div class="card-body text-center py-5 px-4">
+      <!-- Title -->
+      <h3 class="text-secondary fw-normal mb-4" style="color: #6c757d">
+        Hasil Ujian
+      </h3>
+
+      <!-- Current Score -->
+      <h5 class="text-success mb-4" style="color: #28a745 !important">
+        Skor Anda: 40%
+      </h5>
+
+      <!-- High Scores -->
+      <p class="text-secondary mb-2" style="font-size: 0.85rem; color: #6c757d">
+        Skor Tertinggi Pribadi Anda: 60%
+      </p>
+      <p class="text-secondary mb-4" style="font-size: 0.85rem; color: #6c757d">
+        Skor Tertinggi Keseluruhan: 100%
+      </p>
+
+      <!-- Action Button -->
+      <a
+        href="/"
+        class="btn btn-primary w-100"
+        style="background-color: #4caf50; border-color: #4caf50"
+        >Coba Lagi</a
+      >
+    </div>
+  </div>
+
+  <!-- Footer Copyright Text -->
+  <div class="mt-3 text-secondary" style="font-size: 0.7rem; color: #888">
+    (Adınız) tarafından geliştirildi. Tüm hakları saklıdır.
+  </div>
+</div>
+{%- endblock -%}

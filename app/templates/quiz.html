@@ -1,0 +1,113 @@
+{%- extends "base.html" -%} {%- block title -%}Quiz - Python Pro Quiz Time{%
+endblock -%} {%- block head -%}
+<style>
+  .input-container {
+    margin-bottom: 0.5rem;
+  }
+  .label {
+    display: block;
+    font-weight: bold;
+  }
+  .label_question {
+    display: block;
+  }
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  .option-container {
+    display: block;
+    padding: 0.5rem;
+    background-color: #9c9ea0;
+    color: white;
+    border-radius: 4px;
+    margin: 8px 0px;
+  }
+</style>
+
+{% endblock -%} {%- block content -%}
+<div
+  class="d-flex flex-column py-5 justify-content-start align-items-center min-vh-100"
+>
+  <h1>Quiz Time!</h1>
+
+  <div
+    class="card shadow-sm border-0"
+    style="width: 40rem; max-width: 95%; border-radius: 8px"
+  >
+    <div class="card-body py-4 px-4">
+      <div class="flex-column d-flex text-end">
+        <span class="text-secondary" style="font-size: 0.85rem; color: #6c757d"
+          >Self Highest Score: 100%</span
+        >
+        <span class="text-secondary" style="font-size: 0.85rem; color: #6c757d"
+          >All-Time Highest Score: 100%</span
+        >
+      </div>
+      <form method="post" action="/submit_quiz">
+        <div class="input-container">
+          <label class="label" for="name">Name</label>
+          <!-- widht of input should fill width of container -->
+          <input class="input" type="text" id="name" name="name" />
+        </div>
+        <div class="input-container">
+          <label class="label_question" for="question1"
+            >Question 1: How many hours a day?</label
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+        </div>
+        <div class="input-container">
+          <label class="label_question" for="question1"
+            >Question 1: How many hours a day?</label
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+        </div>
+        <div class="input-container">
+          <label class="label_question" for="question1"
+            >Question 1: How many hours a day?</label
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+          <span class="option-container" id="option1" name="option1"
+            >24 Jam</span
+          >
+        </div>
+
+        <button class="btn btn-primary w-100 mt-4" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  {% endblock %}
+</div>
