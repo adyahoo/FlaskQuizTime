@@ -1,9 +1,11 @@
 from flask import render_template
-from app import app
+from app import app,db
+from app.models import User, Question, QuizAttempt
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    users = db.session.execute(db.select(Question).order_by(Question.id)).scalars()
+    return render_template('index.html', users=users)
 @app.route('/quiz')
 def quiz():
     return render_template('quiz.html')
