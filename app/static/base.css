@@ -5,16 +5,17 @@ body {
 }
 
 .btn-primary {
-  background-color: #4caf50;
-  border-color: #4caf50;
   color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #45a049;
-  border-color: #45a049;
+  --bs-btn-bg: #4caf50;
+  --bs-btn-border-color: #4caf50;
+  --bs-btn-hover-bg: #45a049;
+  --bs-btn-hover-border-color: #45a049;
+  --bs-btn-active-bg: #4caf50;
+  --bs-btn-active-border-color: #4caf50;
+  --bs-btn-disabled-bg: #a5d6a7;
+  --bs-btn-disabled-border-color: #a5d6a7;
 }

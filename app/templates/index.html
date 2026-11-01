@@ -18,14 +18,30 @@ endblock %} {% block content%}
         scores will be saved for future reference.
       </h6>
 
-      <div class="my-4">
-        <label class="d-block">Username</label>
-        <input class="w-100" type="text" id="username" name="username" />
-      </div>
+      <form method="post" action="/login">
+        <div class="my-4">
+          <label class="d-block">Username</label>
+          <input
+            class="w-100"
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Please insert your username first"
+          />
+        </div>
 
-      <!-- Navigation Button -->
-      <a href="/quiz" class="btn btn-primary w-100">Start Quiz Here!!!</a>
+        <!-- Navigation Button -->
+        <button class="btn btn-primary w-100" id="submit">
+          Start Quiz Here!!!
+        </button>
+      </form>
     </div>
   </div>
 </div>
+
+<script>
+  const usernameInput = document.getElementById("username");
+  const submitBtn = document.getElementById("submit");
+</script>
 {% endblock %}

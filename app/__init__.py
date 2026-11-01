@@ -8,6 +8,7 @@ class BaseDB(DeclarativeBase):
 db = SQLAlchemy(model_class=BaseDB)
 
 app = Flask(__name__)
+app.secret_key = 'kodland_pro_python_secret_key'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db.init_app(app)
