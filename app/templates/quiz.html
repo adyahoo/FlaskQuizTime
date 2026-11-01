@@ -47,12 +47,7 @@ endblock -%} {%- block head -%}
           >All-Time Highest Score: 100%</span
         >
       </div>
-      <form method="post" action="/submit_quiz">
-        <div class="input-container">
-          <label class="label" for="name">Name</label>
-          <!-- widht of input should fill width of container -->
-          <input class="input" type="text" id="name" name="name" />
-        </div>
+      <form method="get" action="/result">
         <div class="input-container">
           <label class="label_question" for="question1"
             >Question 1: How many hours a day?</label
