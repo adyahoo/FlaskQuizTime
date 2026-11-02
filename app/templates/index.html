@@ -1,6 +1,8 @@
-{% extends "base.html" %} {% block title %}Home - Python Pro Quiz Time{%
-endblock %} {% block content%}
-<div class="d-flex justify-content-center align-items-center min-vh-100">
+{% extends "base.html" %} {% from "macros/footer.html" import c_footer %} {%
+block title %}Home - Python Pro Quiz Time{% endblock %} {% block content%}
+<div
+  class="d-flex flex-column justify-content-center align-items-center min-vh-100"
+>
   <!-- The Card component with a subtle shadow -->
   <div
     class="card shadow"
@@ -31,17 +33,19 @@ endblock %} {% block content%}
           />
         </div>
 
-        <!-- Navigation Button -->
         <button class="btn btn-primary w-100" id="submit">
           Start Quiz Here!!!
         </button>
       </form>
+
+      <button
+        class="btn btn-primary w-100 mt-4"
+        onclick="window.location.href = '/predict'"
+      >
+        Classify your image with AI Here!!!
+      </button>
     </div>
   </div>
+  {{ c_footer() }}
 </div>
-
-<script>
-  const usernameInput = document.getElementById("username");
-  const submitBtn = document.getElementById("submit");
-</script>
 {% endblock %}

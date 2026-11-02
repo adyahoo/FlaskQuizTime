@@ -1,5 +1,5 @@
-{%- extends "base.html" -%} {%- block title -%}Quiz - Python Pro Quiz Time{%
-endblock -%} {%- block head -%}
+{%- extends "base.html" -%} {% from "macros/footer.html" import c_footer %} {%-
+block title -%}Quiz - Python Pro Quiz Time{% endblock -%} {%- block head -%}
 <style>
   .input-container {
     margin-bottom: 0.5rem;
@@ -88,6 +88,7 @@ endblock -%} {%- block head -%}
       </form>
     </div>
   </div>
+  {{ c_footer() }}
 </div>
 
 <script>

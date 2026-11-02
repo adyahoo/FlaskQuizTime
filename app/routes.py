@@ -44,8 +44,12 @@ def submit_quiz(user_id):
 @app.route('/result')
 def result():
     user_id = request.args.get('user_id')
-    
+
     high_scores = quiz_attempt_service.get_high_score(user_id=user_id)
     latest_score = quiz_attempt_service.get_latest_attempt(user_id=user_id).score
 
     return render_template('result.html', user_id=user_id, high_scores=high_scores, latest_score=latest_score)
+
+@app.route('/predict')
+def predict():
+    return render_template('predict.html')

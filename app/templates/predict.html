@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% from "macros/footer.html" import c_footer %} {%
+block title %}Predict Image - Python Pro Quiz Time{% endblock %} {% block
+content%}
+<div
+  class="d-flex flex-column justify-content-center align-items-center min-vh-100"
+>
+  <div
+    class="card shadow"
+    style="width: 32rem; max-width: 95%; border-radius: 8px"
+  >
+    <div class="card-body text-center p-4">
+      <h5 class="card-title fw-bold mb-2">Python Pro Quiz Time</h5>
+      <h6 class="card-subtitle text-muted mb-4">
+        Test your Python skills with our interactive quiz! Challenge yourself
+        and see how you rank against others.
+      </h6>
+
+      <h6 class="card-subtitle text-muted">
+        Enter your username to start the quiz and track your progress. Your
+        scores will be saved for future reference.
+      </h6>
+
+      <form method="post" action="/login">
+        <div class="my-4">
+          <label class="d-block">Username</label>
+          <input
+            class="w-100"
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Please insert your username first"
+          />
+        </div>
+
+        <button class="btn btn-primary w-100" id="submit">
+          Start Quiz Here!!!
+        </button>
+      </form>
+    </div>
+  </div>
+  {{ c_footer() }}
+</div>
+{% endblock%}

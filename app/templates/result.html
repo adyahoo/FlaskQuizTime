@@ -1,5 +1,6 @@
-{%- extends "base.html" -%} {%- block title -%}Quiz Result - Python Pro Quiz
-Time{% endblock -%} {%- block content -%}
+{%- extends "base.html" -%} {% from "macros/footer.html" import c_footer %}{%-
+block title -%}Quiz Result - Python Pro Quiz Time{% endblock -%} {%- block
+content -%}
 <div
   class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
 >
@@ -37,9 +38,6 @@ Time{% endblock -%} {%- block content -%}
     </div>
   </div>
 
-  <!-- Footer Copyright Text -->
-  <div class="mt-3 text-secondary" style="font-size: 0.7rem; color: #888">
-    (Adınız) tarafından geliştirildi. Tüm hakları saklıdır.
-  </div>
+  {{ c_footer() }}
 </div>
 {%- endblock -%}
