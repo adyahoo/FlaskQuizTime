@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import User, Question, QuizAttempt, Option
+from app.models import User, Question, QuizAttempt, Option, DetectedObject
 from app.utils.utils import *
 
 if __name__ == "__main__":

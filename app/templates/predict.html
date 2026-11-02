@@ -9,36 +9,65 @@ content%}
     style="width: 32rem; max-width: 95%; border-radius: 8px"
   >
     <div class="card-body text-center p-4">
-      <h5 class="card-title fw-bold mb-2">Python Pro Quiz Time</h5>
+      <h5 class="card-title fw-bold mb-2">Classify your favorite images</h5>
       <h6 class="card-subtitle text-muted mb-4">
-        Test your Python skills with our interactive quiz! Challenge yourself
-        and see how you rank against others.
+        Upload your image and let our model predict the class for you!
       </h6>
 
-      <h6 class="card-subtitle text-muted">
-        Enter your username to start the quiz and track your progress. Your
-        scores will be saved for future reference.
-      </h6>
-
-      <form method="post" action="/login">
-        <div class="my-4">
-          <label class="d-block">Username</label>
+      <form method="POST" action="/predict" enctype="multipart/form-data">
+        <div class="mb-4">
+          <label for="imageInput" class="form-label text-muted"
+            >Select a photo (PNG, JPG)</label
+          >
           <input
-            class="w-100"
-            type="text"
-            id="username"
-            name="username"
-            required
-            placeholder="Please insert your username first"
+            class="form-control"
+            type="file"
+            id="imageInput"
+            name="image"
+            accept=".png, .jpg, .jpeg"
           />
         </div>
+        <img
+          id="previewImage"
+          src="#"
+          alt="Preview Image"
+          class="img-fluid mb-4 d-none max-h-300 border-radius-8"
+        />
 
-        <button class="btn btn-primary w-100" id="submit">
-          Start Quiz Here!!!
+        <button
+          type="submit"
+          id="uploadBtn"
+          class="btn btn-primary w-100"
+          disabled
+        >
+          Run Classification
         </button>
       </form>
     </div>
   </div>
   {{ c_footer() }}
 </div>
+
+<script>
+  const imageInput = document.getElementById("imageInput");
+  const previewImage = document.getElementById("previewImage");
+  const uploadBtn = document.getElementById("uploadBtn");
+
+  imageInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        previewImage.src = e.target.result;
+        previewImage.classList.remove("d-none");
+        uploadBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      previewImage.src = "#";
+      previewImage.classList.add("d-none");
+      uploadBtn.disabled = true;
+    }
+  });
+</script>
 {% endblock%}

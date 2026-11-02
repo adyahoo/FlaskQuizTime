@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% from "macros/footer.html" import c_footer %} {%
+block title %}Predict Image Result - Python Pro Quiz Time{% endblock %} {% block
+content%}
+<div
+  class="d-flex flex-column justify-content-center align-items-center min-vh-100"
+>
+  <div
+    class="card shadow"
+    style="width: 64rem; max-width: 95%; border-radius: 8px"
+  >
+    <div class="card-body text-center p-4">
+      <div class="d-flex justify-content-center gap-3">
+        <div>
+          <h5 class="card-title fw-bold mb-2">Original Image</h5>
+          <img
+            src="{{ url_for('static', filename='uploads/'+result.filename) }}"
+            alt="Uploaded Image"
+            class="img-fluid"
+          />
+        </div>
+        <div>
+          <h5 class="card-title fw-bold mb-2">Detected Image</h5>
+          <img
+            src="{{ url_for('static', filename='uploads/detected_'+result.filename) }}"
+            alt="Uploaded Image"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+
+      <h5 class="card-title mt-3">
+        Prediction: {{ '%.2f' | format(result.score) }}%
+      </h5>
+      <h5 class="card-title mt-3 text-capitalize">
+        Object Name: {{ result.label }}
+      </h5>
+
+      <a href="/" class="btn btn-primary w-100"> Back to Home </a>
+    </div>
+  </div>
+  {{ c_footer() }}
+</div>
+{% endblock%}
