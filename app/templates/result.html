@@ -16,15 +16,15 @@ Time{% endblock -%} {%- block content -%}
 
       <!-- Current Score -->
       <h5 class="text-success mb-4" style="color: #28a745 !important">
-        Skor Anda: 40%
+        Skor Anda: {{ latest_score }}%
       </h5>
 
       <!-- High Scores -->
       <p class="text-secondary mb-2" style="font-size: 0.85rem; color: #6c757d">
-        Skor Tertinggi Pribadi Anda: 60%
+        Skor Tertinggi Pribadi Anda: {{ high_scores.user_high_score }}%
       </p>
       <p class="text-secondary mb-4" style="font-size: 0.85rem; color: #6c757d">
-        Skor Tertinggi Keseluruhan: 100%
+        Skor Tertinggi Keseluruhan: {{ high_scores.all_time_high_score }}%
       </p>
 
       <!-- Action Button -->

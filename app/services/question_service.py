@@ -9,3 +9,8 @@ def get_all_questions_with_options():
     return db.session.execute(
         db.select(Question).options(db.joinedload(Question.options)).order_by(Question.id)
     ).unique().scalars().all()
+
+def get_question_by_id(question_id):
+    return db.session.execute(
+        db.select(Question).filter_by(id=question_id)
+    ).scalar()

@@ -52,7 +52,11 @@ endblock -%} {%- block head -%}
           >All-Time Highest Score: {{ high_scores.all_time_high_score }}%</span
         >
       </div>
-      <form method="post" action="/submit_quiz" id="quizForm">
+      <form
+        method="post"
+        action="{{ url_for('submit_quiz', user_id=user_id) }}"
+        id="quizForm"
+      >
         {% for question in questions %}
         <div class="input-container">
           <label class="label_question" for="question_{{ loop.index }}"
