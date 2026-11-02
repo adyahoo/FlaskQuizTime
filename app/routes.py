@@ -13,13 +13,16 @@ def login():
     if not user:
         user = user_service.create_user(username=request.form['username'])
 
-    return redirect(url_for('quiz', username=user.username))
+    return redirect(url_for('quiz', user=user.id))
 
 @app.route('/quiz')
 def quiz():
-    questions = question_service.get_all_questions_with_options()
+    user_id = request.args.get('user')
 
-    return render_template('quiz.html', questions=questions)
+    questions = question_service.get_all_questions_with_options()
+    high_scores = quiz_attempt_service.get_high_score(user_id=user_id)
+
+    return render_template('quiz.html', questions=questions, high_scores=high_scores)
 
 @app.route('/result')
 def result():

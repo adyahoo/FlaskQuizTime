@@ -42,10 +42,10 @@ endblock -%} {%- block head -%}
     <div class="card-body py-4 px-4">
       <div class="flex-column d-flex text-end">
         <span class="text-secondary" style="font-size: 0.85rem; color: #6c757d"
-          >Self Highest Score: 100%</span
+          >Self Highest Score: {{ high_scores.user_high_score }}%</span
         >
         <span class="text-secondary" style="font-size: 0.85rem; color: #6c757d"
-          >All-Time Highest Score: 100%</span
+          >All-Time Highest Score: {{ high_scores.all_time_high_score }}%</span
         >
       </div>
       <form method="get" action="/result">
