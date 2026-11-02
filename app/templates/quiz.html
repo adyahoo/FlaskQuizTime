@@ -25,6 +25,10 @@ endblock -%} {%- block head -%}
     color: white;
     border-radius: 4px;
     margin: 8px 0px;
+    cursor: pointer;
+  }
+  .option-container.selected {
+    background-color: #4caf50;
   }
 </style>
 
@@ -48,26 +52,72 @@ endblock -%} {%- block head -%}
           >All-Time Highest Score: {{ high_scores.all_time_high_score }}%</span
         >
       </div>
-      <form method="get" action="/result">
+      <form method="post" action="/submit_quiz" id="quizForm">
         {% for question in questions %}
         <div class="input-container">
           <label class="label_question" for="question_{{ loop.index }}"
-            >{{ question.question }}</label
+            >{{loop.index}}. {{ question.question }}</label
           >
+          <input
+            type="hidden"
+            name="question_{{ question.id }}"
+            id="{{question.id}}"
+            value=""
+          />
           {% for option in question.options %}
           <span
             class="option-container"
-            id="option_{{ loop.index }}"
-            name="option_{{ loop.index }}"
+            id="option_{{option.question_id}}_{{option.id}}"
+            name="option_{{option.question_id}}_{{option.id}}"
+            data-question-id="{{option.question_id}}"
+            data-option-id="{{option.id}}"
+            onclick="selectOption(this)"
             >{{alphabet[loop.index-1]}}. {{ option.option }}</span
           >
           {% endfor %}
         </div>
         {% endfor %}
 
-        <button class="btn btn-primary w-100 mt-4" type="submit">Submit</button>
+        <button class="btn btn-primary w-100 mt-4" type="submit" disabled>
+          Submit
+        </button>
       </form>
     </div>
   </div>
-  {% endblock %}
 </div>
+
+<script>
+  function selectOption(el) {
+    const data = el.dataset;
+
+    const parentContainer = el.closest(".input-container");
+    const allOptions = parentContainer.querySelectorAll(".option-container");
+    allOptions.forEach((option) => {
+      option.classList.remove("selected");
+    });
+    el.classList.add("selected");
+
+    const curInput = document.getElementById(data.questionId);
+    if (curInput) {
+      curInput.value = data.optionId;
+    }
+
+    checkAllAnswered();
+  }
+
+  function checkAllAnswered() {
+    const allInputs = document.querySelectorAll("input[type='hidden']");
+    let allAnswered = true;
+    allInputs.forEach((input) => {
+      if (!input.value) {
+        allAnswered = false;
+      }
+    });
+
+    const submitButton = document.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.disabled = !allAnswered;
+    }
+  }
+</script>
+{% endblock %}

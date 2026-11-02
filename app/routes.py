@@ -24,6 +24,11 @@ def quiz():
 
     return render_template('quiz.html', questions=questions, high_scores=high_scores)
 
+@app.route('/submit_quiz', methods=['POST'])
+def submit_quiz():
+    print(request.form)
+    return redirect(url_for('result'))
+
 @app.route('/result')
 def result():
     return render_template('result.html')
