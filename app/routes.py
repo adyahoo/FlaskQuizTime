@@ -1,5 +1,5 @@
-from flask import render_template, request, redirect, url_for, flash
-from app import app,db
+from flask import render_template, request, redirect, url_for
+from app import app
 from app.services import quiz_attempt_service, user_service, question_service, option_service
 
 @app.route('/')
@@ -49,7 +49,3 @@ def result():
     latest_score = quiz_attempt_service.get_latest_attempt(user_id=user_id).score
 
     return render_template('result.html', user_id=user_id, high_scores=high_scores, latest_score=latest_score)
-
-@app.route('/predict')
-def predict():
-    return render_template('predict.html')
