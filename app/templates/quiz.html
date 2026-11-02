@@ -28,7 +28,8 @@ endblock -%} {%- block head -%}
   }
 </style>
 
-{% endblock -%} {%- block content -%}
+{% endblock -%} {%- block content -%} {% set alphabet =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
 <div
   class="d-flex flex-column py-5 justify-content-start align-items-center min-vh-100"
 >
@@ -48,57 +49,21 @@ endblock -%} {%- block head -%}
         >
       </div>
       <form method="get" action="/result">
+        {% for question in questions %}
         <div class="input-container">
-          <label class="label_question" for="question1"
-            >Question 1: How many hours a day?</label
+          <label class="label_question" for="question_{{ loop.index }}"
+            >{{ question.question }}</label
           >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
+          {% for option in question.options %}
+          <span
+            class="option-container"
+            id="option_{{ loop.index }}"
+            name="option_{{ loop.index }}"
+            >{{alphabet[loop.index-1]}}. {{ option.option }}</span
           >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
+          {% endfor %}
         </div>
-        <div class="input-container">
-          <label class="label_question" for="question1"
-            >Question 1: How many hours a day?</label
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-        </div>
-        <div class="input-container">
-          <label class="label_question" for="question1"
-            >Question 1: How many hours a day?</label
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-          <span class="option-container" id="option1" name="option1"
-            >24 Jam</span
-          >
-        </div>
+        {% endfor %}
 
         <button class="btn btn-primary w-100 mt-4" type="submit">Submit</button>
       </form>

@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import User, Question, QuizAttempt
+from app.models import User, Question, QuizAttempt, Option
 from app.utils.utils import *
 
 if __name__ == "__main__":
@@ -11,6 +11,7 @@ if __name__ == "__main__":
         dir = 'app/instance/mysql_schema/'
         import_csv_to_sqlite(dir + 'users.csv', user_mapper)
         import_csv_to_sqlite(dir + 'questions.csv', question_mapper)
+        import_csv_to_sqlite(dir + 'options.csv', option_mapper)
         import_csv_to_sqlite(dir + 'quiz_attempts.csv', quiz_attempt_mapper)
 
     app.run(debug=True)

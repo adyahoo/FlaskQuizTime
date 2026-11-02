@@ -1,0 +1,41 @@
+id,question_id,option,is_correct
+1,1,"To clean your computer's hard drive",0
+2,1,To automatically talk to users and answer their questions,1
+3,1,To design graphics for a video game,0
+4,1,To make your internet connection faster,0
+5,2,If-Else statements (Conditionals),1
+6,2,For loops,0
+7,2,Mathematical formulas,0
+8,2,Print statements,0
+9,3,A library used for drawing 3D animations,0
+10,3,A framework used to build and run web applications,1
+11,3,A tool for editing photographs,0
+12,3,A database used to store passwords securely,0
+13,4,To connect a specific web address (URL) to a Python function,1
+14,4,To download images from the internet,0
+15,4,To style the website with colors and fonts,0
+16,4,To tell the computer to restart,0
+17,5,.mp3,0
+18,5,.exe,0
+19,5,.html,1
+20,5,.csv,0
+21,6,Helping computers type faster,0
+22,6,Teaching computers to understand and recognize things inside images or videos,1
+23,6,Fixing broken computer monitors,0
+24,6,Translating websites from English to Spanish,0
+25,7,BeautifulSoup,0
+26,7,Flask,0
+27,7,ImageAI (built on TensorFlow),1
+28,7,Pygame,0
+29,8,"Understand, analyze, and generate human language (like English)",1
+30,8,Process credit card payments online,0
+31,8,Speak with a robotic voice,0
+32,8,Calculate complex math equations instantly,0
+33,9,TensorFlow,0
+34,9,BeautifulSoup,1
+35,9,NLTK,0
+36,9,ImageAI,0
+37,10,Flask,0
+38,10,NLTK (Natural Language Toolkit),1
+39,10,BeautifulSoup,0
+40,10,HTML5,0

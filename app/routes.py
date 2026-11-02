@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
 from app import app,db
-from app.services import user_service
+from app.services import quiz_attempt_service, user_service, question_service, option_service
 
 @app.route('/')
 def index():
@@ -17,9 +17,9 @@ def login():
 
 @app.route('/quiz')
 def quiz():
-    username = request.args.get('username')
+    questions = question_service.get_all_questions_with_options()
 
-    return render_template('quiz.html')
+    return render_template('quiz.html', questions=questions)
 
 @app.route('/result')
 def result():

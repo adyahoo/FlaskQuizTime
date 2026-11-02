@@ -1,6 +1,6 @@
 import csv
 from app import app, db
-from app.models import User, QuizAttempt, Question
+from app.models import User, QuizAttempt, Question, Option
 
 def user_mapper(row):
     existing = db.session.execute(
@@ -20,12 +20,22 @@ def question_mapper(row):
         new_record = Question(
             id=row['id'],
             question=row['question'],
-            option_a=row['option_a'],
-            option_b=row['option_b'],
-            option_c=row['option_c'],
-            option_d=row['option_d'],
-            correct_option=row['correct_option'],
+            point=row['point'],
             created_at=row['created_at']
+        )
+        db.session.add(new_record)
+
+def option_mapper(row):
+    existing = db.session.execute(
+        db.select(Option).filter_by(id=row['id'])
+    ).scalar()
+
+    if not existing:
+        new_record = Option(
+            id=row['id'],
+            question_id=row['question_id'],
+            option=row['option'],
+            is_correct=True if row['is_correct']=='1' else False
         )
         db.session.add(new_record)
 
